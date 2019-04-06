@@ -32,10 +32,16 @@ def _pick_question(state):
     random.shuffle(questions)
     best = questions[0]
 
+    if random.random() < 0.25:
+        get_priority = lambda q: (
+            q['correct'] - q['incorrect'],
+            q['correct'] + q['incorrect']
+        )
+    else:
+        get_priority = lambda q: q['correct'] + q['incorrect']
+
     for question in state['q']:
-        if (question['correct'] + question['incorrect'] < best['correct'] + best['incorrect'] or 
-            (question['correct'] + question['incorrect'] == best['correct'] + best['incorrect'] and
-             question['incorrect'] > best['incorrect'])):
+        if get_priority(question) < get_priority(best):
             best = question
 
     return best
@@ -1287,7 +1293,7 @@ D Unerfahrene Luftfahrzeugführer
 
 169 Eine Wetterberatung ist grundsätzlich einzuholen bei ...
 
-A Flügen, die über die Instrumentenflugregeln 
+A Flügen, die über die Umgebung des Startflugplatzes hinausführen und vor Flügen Instrumentenflugregeln
 B zweifelhaften Wetterlagen
 C Flügen, für die ein Flugplan zu übermitteln ist
 D Flügen zu gewerblichen Zwecken
