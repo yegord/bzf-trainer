@@ -1305,7 +1305,7 @@ B Ortszeit
 C Zonenzeit (Z-Zeit)
 D MEZ bzw. MESZ
 
-171 Welches ist die Maßeinheit für Entfernungen in der Luftfahrt zum Zwecke der Navigation?
+171 Welches ist die Maßeinheit für die horizontale Geschwindigkeit in der Luftfahrt?
 
 A Knoten
 B Meilen je Minute
